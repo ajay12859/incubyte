@@ -1,6 +1,6 @@
-import pytest
-
 def add(s):
+    if s=="":
+        return 0
     nums = [ int(x) for x in s.split(',')]
     sum = 0
     for n in nums:
@@ -8,13 +8,5 @@ def add(s):
     return sum
 
 
-# def test():
-#     s1 = ""
-#     s2 = "1"
-#     # s3 =
-#     assert add(s1) == 0
-
-# test()
-
-
-
+if __name__ == '__main__':
+    add("")

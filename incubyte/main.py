@@ -8,13 +8,21 @@ def add(s):
 
     nums = [ int(x.strip()) for x in s.split(delim)]
     sum = 0
-    
+    negatives = []
+    hasNegative = False
     for n in nums:
         if n<0:
-            raise Exception(f"negative numbers not allowed {str(n)}")
-        sum += n
+            negatives.append(str(n))
+            if not hasNegative:
+                hasNegative = True
+
+        if not hasNegative:
+            sum += n
+    
+    if hasNegative:
+        raise Exception(f"negative numbers not allowed {','.join(negatives)}")
     return sum
 
 
 if __name__ == '__main__':
-    print(add("//;\n1;2;-3"))
+    print(add("//;\n1;-2;-3"))

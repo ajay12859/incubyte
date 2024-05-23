@@ -11,3 +11,9 @@ assert add("//;\n1;2;3") == 6
 with pytest.raises(Exception) as e_info:
     add("1,-2,3")
     assert str(e_info.value) == 'negative numbers not allowed -2'
+
+with pytest.raises(Exception) as e_info:
+    add("1,-2,-3")
+    assert str(e_info.value) == 'negative numbers not allowed -2,-3'
+
+    
